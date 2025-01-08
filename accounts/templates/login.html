@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}detail{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
   {% if form.errors %}
@@ -20,6 +20,7 @@
 
     <input type="submit" value="login" class="btn btn-primary">
   </form>
+  <a href="{% url 'accounts:signup' %}" class="btn btn-dark">signup</a>
   {% endif %}
 {% endblock %}
 
