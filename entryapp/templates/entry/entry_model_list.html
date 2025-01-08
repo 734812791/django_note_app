@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+<!--{% load static %}-->
+<!--<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">-->
+
+{% block title %}all{% endblock %}
+
+{% block content %}
+{% for entry in object_list %}
+
+    <div class="card">
+      <div class="card-header">
+        {{ forloop.counter }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ entry.title }}</h5>
+        <p class="card-text">{{ entry.entry_text }}</p>
+        <a href="{% url 'detail_entry' entry.pk %}" class="btn btn-primary">detail</a>
+      </div>
+    </div>
+
+<!--    <div class="list-group">-->
+<!--    <ul>-->
+<!--        <li>-->
+<!--            <h1>-->
+<!--                <a href="{% url 'detail_entry' entry.pk %}"-->
+<!--           class="list-group-item list-group-item-action">{{ forloop.counter }}-{{ entry.title }}</a>-->
+<!--            </h1>-->
+<!--        </li>-->
+
+<!--    </ul>-->
+<!--    </div>-->
+    {% endfor %}
+
+
+    <a href="{% url 'create_entry' %}" class="btn btn-dark">new</a>
+    <a href="{% url 'user_list' user.id %}" class="btn btn-dark">my</a>
+    <a href="{% url 'list_entry' %}" class="btn btn-dark">all</a>
+    <a href="{% url 'accounts:logout' %}" class="btn btn-dark">logout</a>
+{% endblock %}
+
